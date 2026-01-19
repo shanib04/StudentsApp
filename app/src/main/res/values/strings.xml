@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">StudentsApp</string>
+
+    <!-- Student details -->
+    <string name="student_details_title">Student Details</string>
+    <string name="student_info_title">Student Info</string>
+    <string name="label_student_name">Name</string>
+    <string name="label_student_id">Student ID</string>
+    <string name="student_not_found">Student not found</string>
+    <string name="format_student_id_line">ID: %1$s</string>
+    <string name="edit_student">Edit Student</string>
+    <string name="edit_screen_not_available">Edit screen not available yet</string>
 </resources>

@@ -1,8 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.StudentsApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Clean, professional palette -->
+        <item name="colorPrimary">@color/studentsapp_primary</item>
+        <item name="colorOnPrimary">@color/studentsapp_on_primary</item>
+        <item name="colorSecondary">@color/studentsapp_secondary</item>
+        <item name="colorOnSecondary">@color/studentsapp_on_secondary</item>
+        <item name="colorSurface">@color/studentsapp_surface</item>
+        <item name="colorOnSurface">@color/studentsapp_on_surface</item>
     </style>
 
     <style name="Theme.StudentsApp" parent="Base.Theme.StudentsApp" />
