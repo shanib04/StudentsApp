@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Deep teal palette -->
     <color name="studentsapp_primary">#006A6A</color>
     <color name="studentsapp_on_primary">#FFFFFF</color>
     <color name="studentsapp_secondary">#4A6363</color>

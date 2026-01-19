@@ -31,7 +31,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Header card: larger photo + name -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,7 +77,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Info card: adds structure so the screen doesn't feel empty -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,7 +132,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Space so the bottom button doesn't crowd content -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp" />
