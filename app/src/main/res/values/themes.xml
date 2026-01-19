@@ -1,7 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.StudentsApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Clean, professional palette -->
         <item name="colorPrimary">@color/studentsapp_primary</item>
         <item name="colorOnPrimary">@color/studentsapp_on_primary</item>
         <item name="colorSecondary">@color/studentsapp_secondary</item>
