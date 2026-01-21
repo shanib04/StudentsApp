@@ -46,7 +46,19 @@ class StudentListActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         findViewById<View>(R.id.studentListFab).setOnClickListener {
-            Snackbar.make(recyclerView, "Add Student (not implemented)", Snackbar.LENGTH_SHORT).show()
+            try {
+                val addIntent = Intent(
+                    this,
+                    Class.forName("com.colman.studentsapp.ui.create.NewStudentActivity")
+                )
+                startActivity(addIntent)
+            } catch (_: Throwable) {
+                Snackbar.make(
+                    recyclerView,
+                    "Add Student screen not available",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
@@ -67,11 +79,13 @@ class StudentListActivity : AppCompatActivity() {
                 adapter.submitList(StudentRepository.students)
                 true
             }
+
             R.id.action_deselect_all -> {
                 StudentRepository.setAllChecked(false)
                 adapter.submitList(StudentRepository.students)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

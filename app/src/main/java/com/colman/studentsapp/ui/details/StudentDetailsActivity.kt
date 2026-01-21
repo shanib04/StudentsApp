@@ -15,6 +15,18 @@ import com.google.android.material.snackbar.Snackbar
 
 class StudentDetailsActivity : AppCompatActivity() {
 
+    private var studentUuid: String? = null
+
+    // Views kept as properties so we can update them from onResume
+    private lateinit var image: ShapeableImageView
+    private lateinit var nameHeader: TextView
+    private lateinit var idHeader: TextView
+    private lateinit var nameValue: TextView
+    private lateinit var idValue: TextView
+    private lateinit var addressValue: TextView
+    private lateinit var checkedValue: TextView
+    private lateinit var editButton: MaterialButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_details)
@@ -25,26 +37,48 @@ class StudentDetailsActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val studentUuid = intent.getStringExtra(EXTRA_STUDENT_UUID)
+        studentUuid = intent.getStringExtra(EXTRA_STUDENT_UUID)
+
+        image = findViewById(R.id.studentDetailsImage)
+        nameHeader = findViewById(R.id.studentDetailsName)
+        idHeader = findViewById(R.id.studentDetailsId)
+        nameValue = findViewById(R.id.studentDetailsNameValue)
+        idValue = findViewById(R.id.studentDetailsIdValue)
+        addressValue = findViewById(R.id.studentDetailsAddressValue)
+        checkedValue = findViewById(R.id.studentDetailsCheckedValue)
+        editButton = findViewById(R.id.studentDetailsEditButton)
+
+        editButton.setOnClickListener {
+            try {
+                val editIntent = Intent(this, Class.forName(EDIT_ACTIVITY_FQCN))
+                editIntent.putExtra(EXTRA_STUDENT_UUID, studentUuid)
+                startActivity(editIntent)
+            } catch (_: Throwable) {
+                Snackbar.make(
+                    editButton,
+                    getString(R.string.edit_screen_not_available),
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        // Initial populate
+        populateFromRepository()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Refresh the UI every time the activity resumes, so edits are reflected immediately
+        populateFromRepository()
+    }
+
+    private fun populateFromRepository() {
         val student = studentUuid?.let { StudentRepository.findByUuid(it) }
 
-        val image: ShapeableImageView = findViewById(R.id.studentDetailsImage)
-        val nameHeader: TextView = findViewById(R.id.studentDetailsName)
-        val idHeader: TextView = findViewById(R.id.studentDetailsId)
-        val nameValue: TextView = findViewById(R.id.studentDetailsNameValue)
-        val idValue: TextView = findViewById(R.id.studentDetailsIdValue)
-        val addressValue: TextView = findViewById(R.id.studentDetailsAddressValue)
-        val checkedValue: TextView = findViewById(R.id.studentDetailsCheckedValue)
-        val editButton: MaterialButton = findViewById(R.id.studentDetailsEditButton)
-
         if (student == null) {
-            val notFound = getString(R.string.student_not_found)
-            nameHeader.text = notFound
-            idHeader.text = ""
-            nameValue.text = notFound
-            idValue.text = ""
-            addressValue.text = ""
-            checkedValue.text = ""
+            // If the student was deleted
+            finish()
+            return
         } else {
             image.setImageResource(student.imageResId)
             nameHeader.text = student.name
@@ -53,17 +87,8 @@ class StudentDetailsActivity : AppCompatActivity() {
             nameValue.text = student.name
             idValue.text = student.id
             addressValue.text = student.address
-            checkedValue.text = if (student.isChecked) getString(R.string.value_yes) else getString(R.string.value_no)
-        }
-
-        editButton.setOnClickListener {
-            try {
-                val editIntent = Intent(this, Class.forName(EDIT_ACTIVITY_FQCN))
-                editIntent.putExtra(EXTRA_STUDENT_UUID, studentUuid)
-                startActivity(editIntent)
-            } catch (_: Throwable) {
-                Snackbar.make(editButton, getString(R.string.edit_screen_not_available), Snackbar.LENGTH_SHORT).show()
-            }
+            checkedValue.text =
+                if (student.isChecked) getString(R.string.value_yes) else getString(R.string.value_no)
         }
     }
 
@@ -73,6 +98,7 @@ class StudentDetailsActivity : AppCompatActivity() {
                 finish()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

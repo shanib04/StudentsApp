@@ -21,6 +21,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.edit.EditStudentActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.create.NewStudentActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

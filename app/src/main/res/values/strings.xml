@@ -13,4 +13,9 @@
     <string name="format_student_id_line">ID: %1$s</string>
     <string name="edit_student">Edit Student</string>
     <string name="edit_screen_not_available">Edit screen not available yet</string>
+    <string name="add_student_title">Add Student</string>
+    <string name="error_empty_fields">Please fill both ID and Name</string>
+    <string name="error_duplicate_id">A student with that ID already exists</string>
+    <string name="delete_student">Delete Student</string>
+    <string name="confirm_delete_message">Are you sure you want to delete this student?</string>
 </resources>
