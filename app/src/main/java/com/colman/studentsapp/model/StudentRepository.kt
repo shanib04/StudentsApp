@@ -61,10 +61,6 @@ object StudentRepository {
 
     fun findByUuid(uuid: String): Student? = students.firstOrNull { it.uuid == uuid }
 
-    /**
-     * Student ID is editable, so don't use it as a stable key.
-     * Exists mainly for legacy code / display.
-     */
     fun findById(id: String): Student? = students.firstOrNull { it.id == id }
 
     fun setAllChecked(isChecked: Boolean) {
