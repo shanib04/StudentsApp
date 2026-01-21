@@ -5,6 +5,10 @@
     <string name="student_info_title">Student Info</string>
     <string name="label_student_name">Name</string>
     <string name="label_student_id">Student ID</string>
+    <string name="label_student_address">Address</string>
+    <string name="label_student_checked">Checked</string>
+    <string name="value_yes">Yes</string>
+    <string name="value_no">No</string>
     <string name="student_not_found">Student not found</string>
     <string name="format_student_id_line">ID: %1$s</string>
     <string name="edit_student">Edit Student</string>

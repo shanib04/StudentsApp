@@ -7,6 +7,9 @@
         <item name="colorOnSecondary">@color/studentsapp_on_secondary</item>
         <item name="colorSurface">@color/studentsapp_surface</item>
         <item name="colorOnSurface">@color/studentsapp_on_surface</item>
+
+        <!-- Better behavior on devices with a camera cutout/notch. -->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
 
     <style name="Theme.StudentsApp" parent="Base.Theme.StudentsApp" />

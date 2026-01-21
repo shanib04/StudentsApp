@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.colman.studentsapp.R
 import com.colman.studentsapp.model.StudentRepository
+import com.colman.studentsapp.ui.applyStatusBarInsetPadding
 import com.colman.studentsapp.ui.details.StudentDetailsActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.snackbar.Snackbar
@@ -24,6 +25,8 @@ class StudentListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_student_list)
 
         val toolbar: MaterialToolbar = findViewById(R.id.studentListToolbar)
+        // Ensure the toolbar is laid out below the system status bar / cutout.
+        toolbar.applyStatusBarInsetPadding()
         setSupportActionBar(toolbar)
 
         recyclerView = findViewById(R.id.studentListRecycler)
@@ -33,7 +36,7 @@ class StudentListActivity : AppCompatActivity() {
             students = StudentRepository.students,
             onStudentClick = { student ->
                 val intent = Intent(this, StudentDetailsActivity::class.java)
-                intent.putExtra(StudentDetailsActivity.EXTRA_STUDENT_ID, student.id)
+                intent.putExtra(StudentDetailsActivity.EXTRA_STUDENT_UUID, student.uuid)
                 startActivity(intent)
             },
             onCheckedChanged = { student, isChecked ->

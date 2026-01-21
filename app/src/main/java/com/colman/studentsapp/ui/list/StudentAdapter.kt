@@ -26,7 +26,7 @@ class StudentAdapter(
     }
 
     override fun getItemId(position: Int): Long {
-        return students[position].id.hashCode().toLong()
+        return students[position].uuid.hashCode().toLong()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
@@ -64,4 +64,3 @@ class StudentAdapter(
         }
     }
 }
-
