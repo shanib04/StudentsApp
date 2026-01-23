@@ -7,6 +7,7 @@ data class Student(
     var id: String,
     var name: String,
     var address: String,
+    var phoneNumber: String,
     var isChecked: Boolean,
     @DrawableRes val imageResId: Int,
 )

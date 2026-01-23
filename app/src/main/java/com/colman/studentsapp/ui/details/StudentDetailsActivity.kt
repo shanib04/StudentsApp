@@ -23,6 +23,7 @@ class StudentDetailsActivity : AppCompatActivity() {
     private lateinit var idHeader: TextView
     private lateinit var nameValue: TextView
     private lateinit var idValue: TextView
+    private lateinit var phoneNumberValue: TextView
     private lateinit var addressValue: TextView
     private lateinit var checkedValue: TextView
     private lateinit var editButton: MaterialButton
@@ -44,6 +45,7 @@ class StudentDetailsActivity : AppCompatActivity() {
         idHeader = findViewById(R.id.studentDetailsId)
         nameValue = findViewById(R.id.studentDetailsNameValue)
         idValue = findViewById(R.id.studentDetailsIdValue)
+        phoneNumberValue = findViewById(R.id.studentDetailsPhoneValue)
         addressValue = findViewById(R.id.studentDetailsAddressValue)
         checkedValue = findViewById(R.id.studentDetailsCheckedValue)
         editButton = findViewById(R.id.studentDetailsEditButton)
@@ -86,6 +88,7 @@ class StudentDetailsActivity : AppCompatActivity() {
 
             nameValue.text = student.name
             idValue.text = student.id
+            phoneNumberValue.text = student.phoneNumber
             addressValue.text = student.address
             checkedValue.text =
                 if (student.isChecked) getString(R.string.value_yes) else getString(R.string.value_no)

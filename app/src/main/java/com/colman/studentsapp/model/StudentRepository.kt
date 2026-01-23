@@ -15,6 +15,7 @@ object StudentRepository {
             id = "100001",
             name = "Alex Johnson",
             address = "12 Maple St, Springfield",
+            phoneNumber = "0520000001",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -23,6 +24,7 @@ object StudentRepository {
             id = "100002",
             name = "Maya Chen",
             address = "45 Oak Ave, Riverdale",
+            phoneNumber = "0520000002",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -31,6 +33,7 @@ object StudentRepository {
             id = "100003",
             name = "Sam Rivera",
             address = "7 Pine Rd, Lakeside",
+            phoneNumber = "0520000003",
             isChecked = true,
             imageResId = R.drawable.ic_person_24
         ),
@@ -39,6 +42,7 @@ object StudentRepository {
             id = "100004",
             name = "Noa Levi",
             address = "89 Cedar Blvd, Midtown",
+            phoneNumber = "0520000004",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -47,6 +51,7 @@ object StudentRepository {
             id = "100005",
             name = "Liam Patel",
             address = "3 Elm St, Hillview",
+            phoneNumber = "0520000005",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -55,6 +60,7 @@ object StudentRepository {
             id = "100006",
             name = "Emma Cohen",
             address = "22 Birch Ln, Greenfield",
+            phoneNumber = "0520000006",
             isChecked = true,
             imageResId = R.drawable.ic_person_24
         ),
@@ -63,6 +69,7 @@ object StudentRepository {
             id = "100007",
             name = "Daniel Kim",
             address = "101 Willow Dr, Brookside",
+            phoneNumber = "0520000007",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -71,6 +78,7 @@ object StudentRepository {
             id = "100008",
             name = "Sophia Martinez",
             address = "16 Cherry Ct, Downtown",
+            phoneNumber = "0520000008",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -79,6 +87,7 @@ object StudentRepository {
             id = "100009",
             name = "Amit Singh",
             address = "58 Aspen Way, Northgate",
+            phoneNumber = "0520000009",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -87,6 +96,7 @@ object StudentRepository {
             id = "100010",
             name = "Olivia Brown",
             address = "9 Poplar St, West End",
+            phoneNumber = "0520000010",
             isChecked = true,
             imageResId = R.drawable.ic_person_24
         ),
@@ -95,6 +105,7 @@ object StudentRepository {
             id = "100011",
             name = "Ethan Williams",
             address = "33 Magnolia Ave, Fairview",
+            phoneNumber = "0520000011",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -103,6 +114,7 @@ object StudentRepository {
             id = "100012",
             name = "Ava Garcia",
             address = "74 Palm St, Seaside",
+            phoneNumber = "0520000012",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -111,6 +123,7 @@ object StudentRepository {
             id = "100013",
             name = "Noah Davis",
             address = "6 Cypress Rd, Meadowbrook",
+            phoneNumber = "0520000013",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -119,6 +132,7 @@ object StudentRepository {
             id = "100014",
             name = "Mia Lopez",
             address = "40 Spruce Ln, Sunnyside",
+            phoneNumber = "0520000014",
             isChecked = false,
             imageResId = R.drawable.ic_person_24
         ),
@@ -127,6 +141,7 @@ object StudentRepository {
             id = "100015",
             name = "Ben Carter",
             address = "27 Walnut Dr, Parkview",
+            phoneNumber = "0520000015",
             isChecked = true,
             imageResId = R.drawable.ic_person_24
         ),
@@ -147,6 +162,7 @@ object StudentRepository {
         id: String,
         name: String,
         address: String,
+        phoneNumber: String,
         isChecked: Boolean,
         imageResId: Int
     ): Student? {
@@ -156,6 +172,7 @@ object StudentRepository {
             id = id,
             name = name,
             address = address,
+            phoneNumber = phoneNumber,
             isChecked = isChecked,
             imageResId = imageResId
         )
@@ -176,6 +193,7 @@ object StudentRepository {
         newId: String,
         newName: String,
         newAddress: String,
+        newPhoneNumber: String,
         newChecked: Boolean
     ): UpdateResult {
         val student = findByUuid(uuid) ?: return UpdateResult.NOT_FOUND
@@ -187,6 +205,7 @@ object StudentRepository {
         student.id = newId
         student.name = newName
         student.address = newAddress
+        student.phoneNumber = newPhoneNumber
         student.isChecked = newChecked
         return UpdateResult.SUCCESS
     }

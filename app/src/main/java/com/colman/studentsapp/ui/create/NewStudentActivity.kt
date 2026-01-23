@@ -28,6 +28,7 @@ class NewStudentActivity : AppCompatActivity() {
         val image: ImageView = findViewById(R.id.studentFormImage)
         val idInput: EditText = findViewById(R.id.studentFormId)
         val nameInput: EditText = findViewById(R.id.studentFormName)
+        val phoneInput: EditText = findViewById(R.id.studentFormPhone)
         val addressInput: EditText = findViewById(R.id.studentFormAddress)
         val checkedInput: CheckBox = findViewById(R.id.studentFormChecked)
         val saveButton: MaterialButton = findViewById(R.id.studentFormSave)
@@ -40,6 +41,7 @@ class NewStudentActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val id = idInput.text.toString().trim()
             val name = nameInput.text.toString().trim()
+            val phone = phoneInput.text.toString().trim()
             val address = addressInput.text.toString().trim()
             val checked = checkedInput.isChecked
 
@@ -57,6 +59,7 @@ class NewStudentActivity : AppCompatActivity() {
                 id = id,
                 name = name,
                 address = address,
+                phoneNumber = phone,
                 isChecked = checked,
                 imageResId = R.drawable.ic_person_24
             )

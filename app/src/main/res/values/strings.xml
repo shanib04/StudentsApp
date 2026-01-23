@@ -5,6 +5,7 @@
     <string name="student_info_title">Student Info</string>
     <string name="label_student_name">Name</string>
     <string name="label_student_id">Student ID</string>
+    <string name="label_student_phonenumber">Phone Number</string>
     <string name="label_student_address">Address</string>
     <string name="label_student_checked">Checked</string>
     <string name="value_yes">Yes</string>
