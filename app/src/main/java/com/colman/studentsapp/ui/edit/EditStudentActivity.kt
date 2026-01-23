@@ -13,6 +13,7 @@ import com.colman.studentsapp.model.StudentRepository
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.appbar.MaterialToolbar
+import com.colman.studentsapp.ui.applyStatusBarInsetPadding
 
 class EditStudentActivity : AppCompatActivity() {
 
@@ -24,6 +25,7 @@ class EditStudentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_student_form)
 
         val toolbar: MaterialToolbar = findViewById(R.id.studentFormToolbar)
+        toolbar.applyStatusBarInsetPadding()
         toolbar.title = getString(R.string.edit_student)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
